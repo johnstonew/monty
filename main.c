@@ -1,9 +1,16 @@
 #include "monty.h"
 bus_t bus = {NULL, NULL, NULL, 0};
 
-int main(int argc, char* argv[])
+/**
+* main - monty code interpreter
+* @argc: number of arguments
+* @argv: monty file location
+* Return: 0 on success
+*/
+
+int main(int argc, char *argv[])
 {
-	FILE *fp = fopen(argv[1],"r");
+	FILE *fp = fopen(argv[1], "r");
 	char line[150];
 	char *content;
 	size_t size = 0;
@@ -17,11 +24,11 @@ int main(int argc, char* argv[])
 		exit(EXIT_FAILURE);
 	}
 
-    	if (fp == NULL)
+	if (fp == NULL)
 	{
-       		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-       		exit(EXIT_FAILURE);
-    	} 
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
 	while (read_line > 0)
 	{
 		content = NULL;
@@ -33,7 +40,7 @@ int main(int argc, char* argv[])
 			execute(content, &stack, counter, fp);
 		}
 		free(content);
-	}		
-    	fclose(fp);
+	}
+	fclose(fp);
 return (0);
 }
