@@ -1,3 +1,6 @@
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <stdlib.h>
 #include "monty.h"
 bus_t bus = {NULL, NULL, NULL, 0};
 
@@ -11,7 +14,6 @@ bus_t bus = {NULL, NULL, NULL, 0};
 int main(int argc, char *argv[])
 {
 	FILE *fp = fopen(argv[1], "r");
-	char line[150];
 	char *content;
 	size_t size = 0;
 	ssize_t read_line = 1;
